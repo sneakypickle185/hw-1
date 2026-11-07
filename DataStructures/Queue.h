@@ -5,7 +5,7 @@
 struct Queue
 {
 	unsigned int* _elements;
-	unsigned int _maxSize;
+	int _maxSize;
 	int _front;
 	int _back;
 	int _count;

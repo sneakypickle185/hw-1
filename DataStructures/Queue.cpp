@@ -4,7 +4,7 @@
 void initQueue(Queue* q, unsigned int size)
 {
 	q->_maxSize = size;
-	q->_elements = (unsigned int*)malloc(size * sizeof(unsigned int));
+	q->_elements = new unsigned int[size];
 	q->_front = 0;
 	q->_back = -1;
 	q->_count = 0;
@@ -12,8 +12,10 @@ void initQueue(Queue* q, unsigned int size)
 
 void cleanQueue(Queue* q)
 {
+	delete[] q->_elements;
+	q->_front = 0;
+	q->_back = -1;
 	q->_count = 0;
-	free(q->_elements);
 }
 
 void enqueue(Queue* q, unsigned int newValue)
